@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./routes/Home";
+import Detail from "./routes/Detail";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/movie/:id" element={<Detail />}></Route>
+        <Route path="/" element={<Home />}></Route>
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
+
+// react-router-dom
+// npm i react-router-dom@5.3.0
+// https://v5.reactrouter.com/web/guides/quick-start
+
+// react-router-dom 5버전 -> 버전6 바뀐 부분
+
+// 1. Switch컴포넌트가 Routes컴포넌트로 대체되었습니다.
+// Switch -> Routes
+
+// 2. Route컴포넌트 사이에 자식 컴포넌트를 넣지 않고, element prop에 자식 컴포넌트를 할당하도록 바뀌었습니다.
+// Route path="/" element={< Home / >}
+
+// react-router-dom 6버전 문서
+// https://reactrouter.com/docs/en/v6/getting-started/overview
